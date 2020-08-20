@@ -1,3 +1,4 @@
+-- the table that needs to be created when working with downloaded json data.
 CREATE EXTERNAL TABLE IF NOT EXISTS raw_tweets
 (
 	created_at string,
@@ -31,6 +32,9 @@ CREATE EXTERNAL TABLE IF NOT EXISTS raw_tweets
 ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 STORED AS TEXTFILE
 LOCATION '/apps/hive/warehouse/raw_tweets/';
+
+-- the following query to check if the created table is working or not
+SELECT * FROM raw_tweets LIMIT 10
 
 
 
